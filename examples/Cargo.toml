@@ -1,0 +1,37 @@
+[package]
+name = "quantaforge-examples"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+qf-math = { path = "../crates/qf-math" }
+qf-circuit = { path = "../crates/qf-circuit" }
+qf-sim-statevec = { path = "../crates/qf-sim-statevec" }
+qf-sim-stabilizer = { path = "../crates/qf-sim-stabilizer" }
+qf-noise = { path = "../crates/qf-noise" }
+qf-qec-surface = { path = "../crates/qf-qec-surface" }
+qf-qec-ldpc = { path = "../crates/qf-qec-ldpc" }
+qf-topology = { path = "../crates/qf-topology" }
+qf-scheduler = { path = "../crates/qf-scheduler" }
+rand = "0.8"
+
+[[example]]
+name = "bell_state"
+path = "bell_state.rs"
+
+[[example]]
+name = "ghz_state"
+path = "ghz_state.rs"
+
+[[example]]
+name = "noisy_sim"
+path = "noisy_sim.rs"
+
+[[example]]
+name = "surface_code"
+path = "surface_code.rs"
+
+[[example]]
+name = "benchmark"
+path = "benchmark.rs"

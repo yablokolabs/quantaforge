@@ -1,0 +1,16 @@
+[package]
+name = "qf-math"
+description = "Complex numbers, vectors, matrices, tensor ops, sparse operators for quantum simulation"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+num-complex.workspace = true
+rand.workspace = true
+rayon.workspace = true
+serde.workspace = true
+thiserror.workspace = true
+
+[dev-dependencies]
+proptest.workspace = true

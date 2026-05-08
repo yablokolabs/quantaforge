@@ -1,0 +1,15 @@
+[package]
+name = "qf-sim-stabilizer"
+description = "Stabilizer (Clifford) simulator using Aaronson-Gottesman tableau"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+qf-math = { path = "../qf-math" }
+qf-circuit = { path = "../qf-circuit" }
+rand.workspace = true
+thiserror.workspace = true
+
+[dev-dependencies]
+rand.workspace = true

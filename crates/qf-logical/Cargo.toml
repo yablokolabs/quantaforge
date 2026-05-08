@@ -1,0 +1,16 @@
+[package]
+name = "qf-logical"
+description = "Logical qubit abstractions and encoded operations"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+qf-math = { path = "../qf-math" }
+qf-qec-surface = { path = "../qf-qec-surface" }
+qf-qec-ldpc = { path = "../qf-qec-ldpc" }
+thiserror.workspace = true
+serde.workspace = true
+
+[dev-dependencies]
+serde_json.workspace = true

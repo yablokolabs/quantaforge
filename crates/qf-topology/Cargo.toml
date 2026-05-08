@@ -1,0 +1,11 @@
+[package]
+name = "qf-topology"
+description = "Qubit lattice/topology models and connectivity graphs"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+petgraph.workspace = true
+serde.workspace = true
+thiserror.workspace = true

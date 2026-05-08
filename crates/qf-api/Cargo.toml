@@ -1,0 +1,39 @@
+[package]
+name = "qf-api"
+description = "REST API exposing simulator and scheduler capabilities"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[lib]
+name = "qf_api"
+path = "src/lib.rs"
+
+[[bin]]
+name = "qf-api"
+path = "src/main.rs"
+
+[dependencies]
+qf-circuit = { path = "../qf-circuit" }
+qf-sim-statevec = { path = "../qf-sim-statevec" }
+qf-sim-stabilizer = { path = "../qf-sim-stabilizer" }
+qf-noise = { path = "../qf-noise" }
+qf-scheduler = { path = "../qf-scheduler" }
+qf-agent = { path = "../qf-agent" }
+qf-ui-spec = { path = "../qf-ui-spec" }
+axum.workspace = true
+tokio.workspace = true
+tower.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+uuid.workspace = true
+utoipa.workspace = true
+utoipa-swagger-ui.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+thiserror.workspace = true
+
+[dev-dependencies]
+tower = { workspace = true, features = ["util"] }
+axum = { workspace = true }
+http-body-util = "0.1"

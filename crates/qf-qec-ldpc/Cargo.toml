@@ -1,0 +1,15 @@
+[package]
+name = "qf-qec-ldpc"
+description = "LDPC/Q-LDPC experiment framework with pluggable parity-check structures"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+qf-math = { path = "../qf-math" }
+rand.workspace = true
+serde.workspace = true
+thiserror.workspace = true
+
+[dev-dependencies]
+serde_json.workspace = true

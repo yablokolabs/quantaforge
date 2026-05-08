@@ -1,0 +1,6 @@
+/target
+/lean-spec/.lake
+/lean-spec/lake-packages
+*.swp
+*.swo
+.DS_Store

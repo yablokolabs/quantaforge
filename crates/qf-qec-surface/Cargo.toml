@@ -1,0 +1,13 @@
+[package]
+name = "qf-qec-surface"
+description = "Surface code data structures, syndrome extraction, and decoder interfaces"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+qf-math = { path = "../qf-math" }
+qf-topology = { path = "../qf-topology" }
+rand.workspace = true
+serde.workspace = true
+thiserror.workspace = true

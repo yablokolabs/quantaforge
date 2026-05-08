@@ -1,0 +1,11 @@
+[package]
+name = "qf-ui-spec"
+description = "OpenAPI and interface contracts for QuantaForge"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+serde.workspace = true
+utoipa.workspace = true
+uuid.workspace = true
