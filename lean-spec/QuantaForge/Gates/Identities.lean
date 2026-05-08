@@ -1,3 +1,5 @@
+import QuantaForge.Gates.Defs
+
 /-!
 # Gate Identity Proofs
 
@@ -10,8 +12,6 @@ These correspond to optimizations in the Rust circuit optimizer.
 | `gate_self_inverse_*` | `CircuitOptimizer::cancel_adjacent_inverses()`  |
 | `hxh_eq_z`           | `CircuitOptimizer::hadamard_conjugation()`      |
 -/
-
-import QuantaForge.Gates.Defs
 
 -- We prove identities using the Gate enum directly.
 -- Since these are symbolic/algebraic, we use decidable equality.

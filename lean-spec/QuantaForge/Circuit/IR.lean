@@ -1,3 +1,5 @@
+import QuantaForge.Gates.Defs
+
 /-!
 # Circuit Intermediate Representation
 
@@ -11,8 +13,6 @@ Abstract circuit IR matching the Rust `qf_circuit::Circuit` type.
 | `CircuitIR.gate_count` | `Circuit::gate_count()` |
 | `CircuitIR.is_clifford` | `Circuit::is_clifford_only()` |
 -/
-
-import QuantaForge.Gates.Defs
 
 structure Instruction where
   gate : Gate

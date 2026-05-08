@@ -1,11 +1,11 @@
+import QuantaForge.Circuit.IR
+
 /-!
 # Circuit Rewrite Rules
 
 Prove that certain circuit transformations preserve semantics.
 Working at the instruction-list level.
 -/
-
-import QuantaForge.Circuit.IR
 
 namespace CircuitIR
 
