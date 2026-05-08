@@ -32,7 +32,7 @@ def gate_count (c : CircuitIR) : Nat :=
 def is_clifford (c : CircuitIR) : Bool :=
   c.instructions.all (fun i => i.gate.isClifford)
 
-def has_measurements (c : CircuitIR) : Bool :=
+def has_measurements (_c : CircuitIR) : Bool :=
   false  -- simplified: our Gate type doesn't include Measure
 
 def empty (n : Nat) : CircuitIR :=
@@ -40,6 +40,13 @@ def empty (n : Nat) : CircuitIR :=
 
 def addGate (c : CircuitIR) (g : Gate) (qs : List Nat) : CircuitIR :=
   { c with instructions := c.instructions ++ [{ gate := g, qubits := qs }] }
+
+-- Helper: all predicate distributes over append
+private theorem all_append_iff {α : Type} (p : α → Bool) (l1 l2 : List α) :
+    (l1 ++ l2).all p = (l1.all p && l2.all p) := by
+  induction l1 with
+  | nil => simp [List.all]
+  | cons h t ih => simp [List.all, List.cons_append, ih, Bool.and_assoc]
 
 -- Properties
 
@@ -54,14 +61,17 @@ theorem add_gate_increments_count (c : CircuitIR) (g : Gate) (qs : List Nat) :
 theorem clifford_circuit_stays_clifford (c : CircuitIR) (g : Gate) (qs : List Nat)
     (hc : c.is_clifford = true) (hg : g.isClifford = true) :
     (c.addGate g qs).is_clifford = true := by
-  simp [addGate, is_clifford, List.all_append]
-  constructor
-  · exact hc
-  · simp [hg]
+  unfold is_clifford at hc ⊢
+  unfold addGate
+  simp only [all_append_iff]
+  simp [List.all, hc, hg]
 
 theorem adding_t_makes_non_clifford (c : CircuitIR) (qs : List Nat)
-    (hc : c.is_clifford = true) :
+    (_hc : c.is_clifford = true) :
     (c.addGate .T qs).is_clifford = false := by
-  simp [addGate, is_clifford, List.all_append]
+  unfold is_clifford at *
+  unfold addGate
+  simp only [all_append_iff]
+  simp [List.all, Gate.isClifford]
 
 end CircuitIR
