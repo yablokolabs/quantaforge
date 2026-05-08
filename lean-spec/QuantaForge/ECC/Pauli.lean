@@ -83,7 +83,7 @@ def dot (v w : List Bool) : Bool :=
   (v.zip w).foldl (fun acc (a, b) => xor acc (a && b)) false
 
 -- Dot product with zero vector is zero
-theorem dot_zero (v : List Bool) (h : v.length = 0) : dot v [] = false := by
+theorem dot_zero (v : List Bool) (_h : v.length = 0) : dot v [] = false := by
   simp [dot, List.zip]
 
 -- Self-dot of zero vector

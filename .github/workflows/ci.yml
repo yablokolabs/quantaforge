@@ -59,7 +59,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: leanprover/lean4-action@v1
+      - name: Install elan
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh \
+            | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Cache Lean toolchains
+        uses: actions/cache@v4
         with:
-          build-args: ''
-          lake-package-directory: 'lean-spec'
+          path: ~/.elan/toolchains
+          key: ${{ runner.os }}-elan-${{ hashFiles('lean-spec/lean-toolchain') }}
+      - name: Cache .lake
+        uses: actions/cache@v4
+        with:
+          path: lean-spec/.lake
+          key: ${{ runner.os }}-lake-${{ hashFiles('lean-spec/lakefile.lean', 'lean-spec/lean-toolchain') }}
+      - name: Build Lean specs
+        run: cd lean-spec && lake build
