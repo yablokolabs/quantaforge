@@ -242,7 +242,7 @@ fn cmd_sim_run(path: &str, shots: usize, output: &Option<String>) -> Result<()> 
         println!("Qubits: {}", result.num_qubits);
         println!("Counts:");
         let mut sorted: Vec<_> = result.counts.iter().collect();
-        sorted.sort_by(|(a, _), (b, _)| a.cmp(b));
+        sorted.sort_by_key(|(a, _)| *a);
         for (state, count) in &sorted {
             println!("  |{state}⟩: {count}");
         }
